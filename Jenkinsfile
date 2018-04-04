@@ -9,7 +9,21 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'sudo npm install'
+        sh 'echo "Se va a hacer un Test De Conexion" ; ls'
+      }
+    }
+    stage('Execute') {
+      parallel {
+        stage('Execute') {
+          steps {
+            sh 'chmod 775 TestCase.sh'
+          }
+        }
+        stage('Run') {
+          steps {
+            sh 'ls TestCase.sh'
+          }
+        }
       }
     }
   }
