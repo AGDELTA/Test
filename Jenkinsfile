@@ -14,14 +14,19 @@ pipeline {
     }
     stage('Execute') {
       parallel {
-        stage('Execute') {
+        stage('DarPermisos') {
           steps {
             sh 'chmod 775 TestCase.sh'
           }
         }
-        stage('Run') {
+        stage('ListaTestCase') {
           steps {
             sh 'ls TestCase.sh'
+          }
+        }
+        stage('RunScript') {
+          steps {
+            sh './TestCase.sh'
           }
         }
       }
