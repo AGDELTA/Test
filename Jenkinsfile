@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Run') {
           steps {
-            sh './TestCase.sh'
+            sh 'ls TestCase.sh'
           }
         }
       }
