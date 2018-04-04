@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    node {
-      label 'localhost'
+    docker {
+      image 'ubuntu'
     }
     
   }
