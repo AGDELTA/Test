@@ -12,5 +12,12 @@ pipeline {
         sh 'echo "Se va a hacer un Test De Conexion" ; ls'
       }
     }
+    stage('Execute') {
+      steps {
+        sh '''chmod 775 TestCase.sh
+; ./TestCase.sh
+'''
+      }
+    }
   }
 }
