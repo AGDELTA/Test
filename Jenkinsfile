@@ -13,10 +13,17 @@ pipeline {
       }
     }
     stage('Execute') {
-      steps {
-        sh '''chmod 775 TestCase.sh
-; ./TestCase.sh
-'''
+      parallel {
+        stage('Execute') {
+          steps {
+            sh 'chmod 775 TestCase.sh'
+          }
+        }
+        stage('Run') {
+          steps {
+            sh './TestCase.sh'
+          }
+        }
       }
     }
   }
