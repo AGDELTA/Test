@@ -1,10 +1,11 @@
 #!/bin/bash
 
 type speedtest-cli
-if [ $? -ne 0 ]
+REST=$?
+if [ $REST -ne 0 ]
 then
 	pip install speedtest-cli
-elif [ $? -eq 0 ]
+elif [ $REST -eq 0 ]
 then
 	pip install -U speedtest-cli
 else
@@ -12,6 +13,6 @@ else
 	exit
 fi
 
-b_speedtest="$(type speedtest-cli)"
+b_speedtest="$(type speedtest-cli | awk '{ print $NF }')"
 
-if [ -n "$b_speedtest" ] ; then ./"$b_speedtest" ; fi
+if [ -n "$b_speedtest" ] ; then "$b_speedtest" ; fi
