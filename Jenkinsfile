@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo "hola Mundo"'
+        sh 'echo "Se va a hacer un Test De Conexion" ; ls'
       }
     }
   }
